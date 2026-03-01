@@ -1,0 +1,38 @@
+[project]
+name = "imdb-reviews-classification"
+version = "0.1.0"
+description = "IMDB Reviews Classification using distilbert-base-uncased from Hugging Face"
+authors = [{ name = "Allister Kohn", email = "contact@allisterkohn.com" }]
+dependencies = []
+
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+exclude = ["setup.py", "*.ipynb", ".venv", "__pycache__"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort (import sorting)
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+]
+ignore = [
+    "E501",   # line too long (handled by the formatter)
+    "E731",   # lambda assignment
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src", "api"]
+force-single-line = false
+lines-after-imports = 2
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+skip-magic-trailing-comma = false

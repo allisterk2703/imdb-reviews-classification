@@ -41,6 +41,7 @@ endef
 create-env:  ## Create pyenv virtual environment
 	pyenv virtualenv $(PYTHON_VERSION) $(VENV_NAME) || true
 	$(call update-basic-libraries)
+	echo $(VENV_NAME) > .python-version
 	echo "[SUCCESS] $$(date '+%Y-%m-%d %H:%M:%S') - ✅ $(VENV_NAME) created successfully"
 
 activate-env:  ## Command to copy paste in shell to activate the virtual environment

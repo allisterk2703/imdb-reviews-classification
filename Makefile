@@ -23,7 +23,7 @@ help:  ## Show the list of available commands
 	echo "All available commands:"
 	grep -h -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  🔹 %-35s %s\n", $$1, $$2}'
 
-git-push:
+git-push:  # Push changes to Git repository
 	git reset
 	git add .
 	git commit -m "[UPDATE] $$(date '+%Y-%m-%d %H:%M:%S')"
@@ -110,10 +110,10 @@ pre-commit:  ## Run pre-commit hooks
 #  Training
 # ====================================================
 
-embedd:
+embedd:  ## Run embedder.py
 	python src/embedder.py
 	echo "[SUCCESS] $$(date '+%Y-%m-%d %H:%M:%S') - ✅ Embeddings saved to output/embeddings.csv"
 
-run:
+run:  ## Run run.py
 	python src/run.py
 	echo "[SUCCESS] $$(date '+%Y-%m-%d %H:%M:%S') - ✅ Results saved to output/"
